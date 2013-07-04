@@ -4,6 +4,20 @@ This simple project adds a custom enforcer rule that can be applied when your ma
 
 Usage
 -----
+In order to use this rule you need to 
+* add the **maven-enforcer-plugin**.
+* configure and execution using the rule as part of the **enforce** goal
+Rule Configuration:
+                                <exeVersionRule implementation="com.omrispector.maven.enforce.ExeVersionRule">
+                                    <component>Excel</component>
+                                    <checkOn>C:\Program Files (x86)\Microsoft Office\Office12\excel.exe</checkOn>
+                                    <version>[12.0,12.2)</version>
+                                </exeVersionRule>
+**component** - Name of component for user friendly error if rule fails
+**checkOn** - Full path to DLL or executable to be checked
+**version** - a version range to be vaidated
+
+Following is a full example limiting the version of Excel:
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
