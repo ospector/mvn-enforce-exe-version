@@ -17,10 +17,13 @@ Rule Configuration:
                                 </exeVersionRule>
 
 **component** - Name of component for user friendly error if rule fails
+
 **checkOn** - Full path to DLL or executable to be checked
+
 **version** - a version range to be vaidated
 
 Following is a full example limiting the version of Excel:
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
