@@ -34,7 +34,6 @@ Usage
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
 
 Version Semantics
 -----------------
