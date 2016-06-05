@@ -52,7 +52,7 @@ public class ExeVersionRule
 
       ArtifactVersion detectedFileVersion = new DefaultArtifactVersion( file_version );
 
-      enforceVersion( helper.getLog(), component, version, detectedFileVersion );
+      enforceVersion( helper.getLog(), component, getVersion(), detectedFileVersion );
     }
   }
 
