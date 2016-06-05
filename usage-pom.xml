@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--
+    This is an example of how the exe rule can be used.
+    It is also useful for debugging the exe rule :-)
+
+    To run it "mvn -f usage-pom.xml validate"
+    -->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-enforcer-plugin-sample-usage</artifactId>
+    <version>1</version>
+    <packaging>jar</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>1.2</version>
+                <dependencies>
+                  <dependency>
+                      <groupId>com.omrispector</groupId>
+                      <artifactId>mvn.enforce.exe-version</artifactId>
+                      <version>1.4-SNAPSHOT</version>
+                  </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>enforce</id>
+                        <configuration>
+                            <rules>
+                                <exeVersionRule implementation="com.omrispector.maven.enforce.ExeVersionRule">
+                                    <component>AIS</component>
+                                    <checkOn>C:\Program Files (x86)\Microsoft Office\Office12\excel.exe</checkOn>
+                                    <version>[12.0,12.2)</version>
+                                </exeVersionRule>
+                            </rules>
+                        </configuration>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
