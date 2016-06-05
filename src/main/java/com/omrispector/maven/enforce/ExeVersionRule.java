@@ -19,9 +19,9 @@ import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluatio
 public class ExeVersionRule
     extends AbstractVersionEnforcer
 {
-  public String checkOn;   // Path to Executable/DLL
-  public String component; // Name of component for logging
-  public String enable;    // Pass false in cases where rule should be disabled. Defaults to true.
+  private String checkOn;   // Path to Executable/DLL
+  private String component; // Name of component for logging
+  private String enable;    // Pass false in cases where rule should be disabled. Defaults to true.
 
   /*
    * (non-Javadoc)
@@ -31,16 +31,7 @@ public class ExeVersionRule
   public void execute( EnforcerRuleHelper helper )
       throws EnforcerRuleException
   {
-    boolean enforce = (enable!=null && enable.length()>0);
-
-    if (enforce) {
-      try {
-        String shouldRun = helper.evaluate(enable).toString();
-        enforce = !(shouldRun.equalsIgnoreCase("false"));
-      } catch (ExpressionEvaluationException e) {
-        throw new EnforcerRuleException( "Unable to evaluate enable entry: " + enable, e );
-      }
-    }
+    boolean enforce = enable==null || !"false".equalsIgnoreCase(enable);
 
     if (enforce) {
 
