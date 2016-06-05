@@ -20,7 +20,7 @@
                   <dependency>
                       <groupId>com.omrispector</groupId>
                       <artifactId>mvn.enforce.exe-version</artifactId>
-                      <version>1.4-SNAPSHOT</version>
+                      <version>1.5-SNAPSHOT</version>
                   </dependency>
                 </dependencies>
                 <executions>
